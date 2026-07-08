@@ -1,7 +1,5 @@
 // src/lib/usernameLookup.ts
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "./prismaClient";
 
 export async function getUsernameWallet(username: string) {
   return prisma.wallet.findUnique({
