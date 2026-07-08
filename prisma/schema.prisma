@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./mastra.db"
+}
+
+model Wallet {
+  id         String   @id @default(cuid())
+  telegramId String   @unique
+  username   String?  @unique
+  address    String
+  privateKey String
+  createdAt  DateTime @default(now())
+}
